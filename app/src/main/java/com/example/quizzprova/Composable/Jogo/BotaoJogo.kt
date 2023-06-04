@@ -1,5 +1,3 @@
-package com.example.quizzprova.Composable.Jogo
-
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
@@ -47,10 +45,11 @@ fun BotaoJogo(pais: Pais, number: Int) {
     }
 }
 
-fun ChecarRepostas(nomePaisCorreto: String, nomePaisSelecionado: String, context : Context) {
+fun ChecarRepostas(nomePaisCorreto: String, nomePaisSelecionado: String, context: Context) {
     if (nomePaisCorreto == nomePaisSelecionado) {
         Toast.makeText(context, "Resposta Correta!", Toast.LENGTH_SHORT).show()
-    }else{
+    } else {
         Toast.makeText(context, "Resposta Errada!", Toast.LENGTH_SHORT).show()
     }
 }
+

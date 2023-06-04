@@ -2,4 +2,5 @@
     <string name="app_name">QuizzProva</string>
     <string name="title_activity_jogo">JogoActivity</string>
     <string name="title_activity_leaderboard">LeaderboardActivity</string>
+    <string name="title_activity_game">GameActivity</string>
 </resources>

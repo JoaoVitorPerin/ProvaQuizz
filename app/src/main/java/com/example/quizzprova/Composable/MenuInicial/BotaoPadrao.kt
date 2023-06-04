@@ -14,7 +14,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import androidx.core.content.ContextCompat.startActivity
 import com.example.quizzprova.JogoActivity
 import com.example.quizzprova.LeaderboardActivity
 
@@ -35,7 +34,7 @@ fun BotaoJogar() {
     val intent = Intent(context, JogoActivity::class.java)
 
     Button(
-        onClick = { context.startActivity(intent)},
+        onClick = {context.startActivity(intent)},
         colors = ButtonDefaults.textButtonColors(
             backgroundColor = Color.Yellow,
             contentColor = Color.Black
