@@ -41,5 +41,3 @@ fun CollumMenu() {
         BotaoSair()
     }
 }
-
-

@@ -6,7 +6,13 @@ import kotlin.random.Random
 
 @Composable
 fun BodyJogo(){
-    var number = Random
-    val jogo = number.nextInt(PaisesList.paises.size)
-    JogoItem(jogo)
+    val numerosGerados = mutableSetOf<Int>()
+    val tamanhoLista = PaisesList.paises.size
+    
+    val numero = Random.nextInt(tamanhoLista)
+    if (numero !in numerosGerados) {
+        numerosGerados.add(numero)
+        JogoItem(numero)
+    }
+
 }

@@ -9,6 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import com.example.quizzprova.Composable.Jogo.BodyJogo
 import com.example.quizzprova.Composable.Jogo.HeaderJogo
+import com.example.quizzprova.Composable.Jogo.contador
 import com.example.quizzprova.ui.theme.QuizzProvaTheme
 
 class JogoActivity : ComponentActivity() {
@@ -16,13 +17,18 @@ class JogoActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+
             QuizzProvaTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = Color.Black
                 ) {
-                    HeaderJogo()
-                    BodyJogo()
+                    if(contador.value == 5){
+                        finish()
+                    }else{
+                        HeaderJogo()
+                        BodyJogo()
+                    }
                 }
             }
         }

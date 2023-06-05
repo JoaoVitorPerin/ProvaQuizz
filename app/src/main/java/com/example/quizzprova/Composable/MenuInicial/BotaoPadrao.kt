@@ -14,6 +14,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import com.example.quizzprova.Composable.Jogo.contador
+import com.example.quizzprova.Composable.Jogo.score
 import com.example.quizzprova.JogoActivity
 import com.example.quizzprova.LeaderboardActivity
 
@@ -34,7 +36,11 @@ fun BotaoJogar() {
     val intent = Intent(context, JogoActivity::class.java)
 
     Button(
-        onClick = {context.startActivity(intent)},
+        onClick = {
+            context.startActivity(intent)
+            contador.value = 0
+            score.value = 0
+                  },
         colors = ButtonDefaults.textButtonColors(
             backgroundColor = Color.Yellow,
             contentColor = Color.Black
@@ -55,7 +61,7 @@ fun BotaoLeaderboard() {
     val intent = Intent(context, LeaderboardActivity::class.java)
 
     Button(
-        onClick = { context.startActivity(intent)},
+        onClick = { context.startActivity(intent) },
         colors = ButtonDefaults.textButtonColors(
             backgroundColor = Color.Yellow,
             contentColor = Color.Black

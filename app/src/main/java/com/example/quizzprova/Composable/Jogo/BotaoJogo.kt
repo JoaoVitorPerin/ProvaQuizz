@@ -1,7 +1,5 @@
 import android.app.Activity
-import android.content.Context
 import android.content.Intent
-import android.widget.Toast
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.Button
@@ -12,6 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import com.example.quizzprova.Composable.Jogo.ChecarRepostas
 import com.example.quizzprova.JogoActivity
 import com.example.quizzprova.Model.Pais
 
@@ -44,12 +43,3 @@ fun BotaoJogo(pais: Pais, number: Int) {
         Text(text = pais.respostas[number])
     }
 }
-
-fun ChecarRepostas(nomePaisCorreto: String, nomePaisSelecionado: String, context: Context) {
-    if (nomePaisCorreto == nomePaisSelecionado) {
-        Toast.makeText(context, "Resposta Correta!", Toast.LENGTH_SHORT).show()
-    } else {
-        Toast.makeText(context, "Resposta Errada!", Toast.LENGTH_SHORT).show()
-    }
-}
-
