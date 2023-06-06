@@ -8,6 +8,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.graphics.Color
+import com.example.quizzprova.usuario
 
 @Composable
 fun HeaderJogo(){
@@ -29,7 +30,7 @@ var score = mutableStateOf(0);
 
 fun ChecarRepostas(nomePaisCorreto: String, nomePaisSelecionado: String, context: Context) {
     if (nomePaisCorreto == nomePaisSelecionado) {
-        Toast.makeText(context, "Resposta Correta!", Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, "Resposta Correta! ${usuario.value}", Toast.LENGTH_SHORT).show()
         contador.value = contador.value + 1
         score.value = score.value + 1
     } else {

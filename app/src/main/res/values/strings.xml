@@ -3,4 +3,5 @@
     <string name="title_activity_jogo">JogoActivity</string>
     <string name="title_activity_leaderboard">LeaderboardActivity</string>
     <string name="title_activity_game">GameActivity</string>
+    <string name="title_activity_add_usuario">AddUsuario</string>
 </resources>

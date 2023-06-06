@@ -14,10 +14,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import com.example.quizzprova.AddUsuario
 import com.example.quizzprova.Composable.Jogo.contador
 import com.example.quizzprova.Composable.Jogo.score
 import com.example.quizzprova.JogoActivity
 import com.example.quizzprova.LeaderboardActivity
+import com.example.quizzprova.usuario
 
 @Composable
 fun CollumBotoes() {
@@ -33,13 +35,14 @@ fun CollumBotoes() {
 @Composable
 fun BotaoJogar() {
     val context = LocalContext.current
-    val intent = Intent(context, JogoActivity::class.java)
+    val intent = Intent(context, AddUsuario::class.java)
 
     Button(
         onClick = {
             context.startActivity(intent)
-            contador.value = 0
-            score.value = 0
+            usuario.value = "";
+            contador.value = 0;
+            score.value = 0;
                   },
         colors = ButtonDefaults.textButtonColors(
             backgroundColor = Color.Yellow,
