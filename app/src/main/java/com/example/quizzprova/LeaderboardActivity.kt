@@ -5,10 +5,8 @@ import android.widget.Toast
 import android.content.Context
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.MaterialTheme
@@ -39,10 +37,18 @@ class LeaderboardActivity : ComponentActivity() {
                 Surface(
                     color = Color.Black
                 ) {
-                    val context = LocalContext.current
-                    for (usuario in leaderboard){
-                        LeaderboardItem(usuario)
+                    Column(modifier = Modifier
+                        .background(Color.Black)
+                        .fillMaxSize()) {
+                        Text(text = "Leaderboard:",
+                        style = MaterialTheme.typography.h3,
+                        color = Color.White)
+                        for ((index, usuario) in leaderboard.withIndex()) {
+                            val position: Int = index
+                            LeaderboardItem(usuario, position)
+                        }
                     }
+
                 }
             }
         }
@@ -52,6 +58,7 @@ class LeaderboardActivity : ComponentActivity() {
 fun addOnLeaderboard(){
     if (leaderboard.size < 10){
         leaderboard.add(Usuario(usuario.value, score.value))
+        leaderboard.sortedBy { it.score }
     }
 }
 

@@ -78,7 +78,7 @@ object PaisesList {
         ),
         Pais(
             id = 13,
-            nome = "Quiguistao",
+            nome = "Quiguistão",
             imageId = R.drawable.quiguistao,
             respostas = listOf("Ilha de Man", "Frisia", "Quiguistão", "Uruguai")
         ),
