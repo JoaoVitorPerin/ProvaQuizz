@@ -2,6 +2,7 @@ package com.example.quizzprova
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
@@ -12,6 +13,8 @@ import androidx.compose.ui.platform.LocalContext
 import com.example.quizzprova.Composable.Jogo.BodyJogo
 import com.example.quizzprova.Composable.Jogo.HeaderJogo
 import com.example.quizzprova.Composable.Jogo.contador
+import com.example.quizzprova.Composable.Jogo.score
+import com.example.quizzprova.Model.Usuario
 import com.example.quizzprova.ui.theme.QuizzProvaTheme
 
 class JogoActivity : ComponentActivity() {

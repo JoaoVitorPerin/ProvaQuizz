@@ -1,31 +1,21 @@
 package com.example.quizzprova
 
 import android.os.Bundle
-import android.widget.Toast
-import android.content.Context
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.CornerSize
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
-import androidx.compose.material3.Card
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.text.input.TextFieldValue
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.example.quizzprova.Composable.Jogo.score
 import com.example.quizzprova.Composable.Leaderboard.LeaderboardItem
 import com.example.quizzprova.Model.Usuario
 import com.example.quizzprova.ui.theme.QuizzProvaTheme
+import kotlin.math.log
 
 val leaderboard = mutableListOf<Usuario>()
 
@@ -43,22 +33,32 @@ class LeaderboardActivity : ComponentActivity() {
                         Text(text = "Leaderboard:",
                         style = MaterialTheme.typography.h3,
                         color = Color.White)
+                        leaderboard.sortByDescending { it.score }
                         for ((index, usuario) in leaderboard.withIndex()) {
                             val position: Int = index
                             LeaderboardItem(usuario, position)
                         }
                     }
-
                 }
             }
         }
     }
 }
 
-fun addOnLeaderboard(){
-    if (leaderboard.size < 10){
-        leaderboard.add(Usuario(usuario.value, score.value))
-        leaderboard.sortedBy { it.score }
+fun addOnLeaderboard() {
+    val novoUsuario = Usuario(usuario.value, score.value)
+
+    // Verifica se o usuário já existe no leaderboard
+    val usuarioExistente = leaderboard.find { it.nome == novoUsuario.nome }
+
+    if (usuarioExistente != null) {
+        // Se o usuário já existe, verifica se o novo score é maior
+        if (score.value > usuarioExistente.score) {
+            leaderboard.remove(usuarioExistente)
+            leaderboard.add(novoUsuario)
+        }
+    } else {
+        // Se o usuário não existe, adiciona-o ao leaderboard
+        leaderboard.add(novoUsuario)
     }
 }
-

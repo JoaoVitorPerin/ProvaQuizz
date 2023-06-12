@@ -16,7 +16,7 @@ import androidx.compose.ui.unit.dp
 fun BotaoSair() {
     val activity = (LocalContext.current as? Activity)
     Button(
-        onClick = { activity?.finishAndRemoveTask() },
+        onClick = { activity?.finishAffinity() },
         colors = ButtonDefaults.textButtonColors(
             backgroundColor = Color.Red,
             contentColor = Color.White
