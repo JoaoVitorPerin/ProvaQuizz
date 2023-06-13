@@ -1,5 +1,6 @@
 package com.example.quizzprova.Composable.Jogo
 
+import JogoItem
 import androidx.compose.runtime.Composable
 import com.example.quizzprova.Model.PaisesList
 import kotlin.random.Random
