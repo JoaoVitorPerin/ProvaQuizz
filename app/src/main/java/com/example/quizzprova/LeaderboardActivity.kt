@@ -8,12 +8,15 @@ import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.style.TextAlign
 import com.example.quizzprova.Composable.Jogo.score
 import com.example.quizzprova.Composable.Leaderboard.LeaderboardItem
 import com.example.quizzprova.Model.Usuario
@@ -33,18 +36,18 @@ class LeaderboardActivity : ComponentActivity() {
                     Column(
                         modifier = Modifier
                             .background(Color.Black)
-                            .fillMaxSize()
+                            .fillMaxSize(),
+                        horizontalAlignment = Alignment.CenterHorizontally
                     ) {
                         Text(
-                            text = "Leaderboard:",
-                            style = MaterialTheme.typography.h3,
-                            color = Color.White
+                            text = "LEADERBOARD:",
+                            style = MaterialTheme.typography.h4,
+                            color = Color.Yellow
                         )
 
                         leaderboard.sortByDescending { it.score }
-                        val fadeAnimDuration = 500 // Duração da animação de fade in (em milissegundos)
-                        val fadeAnimDelayIncrement = 300 // Incremento de atraso para cada item (em milissegundos)
-                        val maxFadeAnimDelay = fadeAnimDelayIncrement * leaderboard.size
+                        val duracaoEfeitoFade = 500 // Duração da animação de fade in (em milissegundos)
+                        val incrementoEfeitoFade = 300 // Incremento de atraso para cada item (em milissegundos)
 
                         val visibilityStates = remember {
                             leaderboard.mapIndexed { index, _ ->
@@ -53,30 +56,30 @@ class LeaderboardActivity : ComponentActivity() {
                         }
 
                         leaderboard.forEachIndexed { index, usuario ->
-                            val position: Int = index
-                            val fadeAnimDelay = fadeAnimDelayIncrement * position
+                            val posicao: Int = index
+                            val fadeDelay = incrementoEfeitoFade * posicao
 
-                            LaunchedEffect(key1 = visibilityStates[position].value) {
-                                visibilityStates[position].value = true
+                            LaunchedEffect(key1 = visibilityStates[posicao].value) {
+                                visibilityStates[posicao].value = true
                             }
 
                             AnimatedVisibility(
-                                visible = visibilityStates[position].value,
+                                visible = visibilityStates[posicao].value,
                                 enter = fadeIn(
                                     animationSpec = tween(
-                                        durationMillis = fadeAnimDuration,
-                                        delayMillis = fadeAnimDelay,
+                                        durationMillis = duracaoEfeitoFade,
+                                        delayMillis = fadeDelay,
                                         easing = FastOutSlowInEasing
                                     )
                                 ),
                                 exit = fadeOut(
                                     animationSpec = tween(
-                                        durationMillis = fadeAnimDuration,
+                                        durationMillis = duracaoEfeitoFade,
                                         easing = FastOutSlowInEasing
                                     )
                                 )
                             ) {
-                                LeaderboardItem(usuario, position)
+                                LeaderboardItem(usuario, posicao)
                             }
                         }
                     }

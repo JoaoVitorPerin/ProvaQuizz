@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -38,8 +39,9 @@ fun BotaoJogo(pais: Pais, number: Int) {
         ),
         modifier = Modifier
             .padding(8.dp)
-            .size(100.dp, 100.dp)
+            .size(150.dp, 100.dp)
     ) {
-        Text(text = pais.respostas[number])
+        Text(text = pais.respostas[number],
+            style = MaterialTheme.typography.body1)
     }
 }

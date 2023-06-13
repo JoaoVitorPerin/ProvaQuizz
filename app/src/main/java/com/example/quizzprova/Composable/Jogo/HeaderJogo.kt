@@ -7,21 +7,22 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
 import com.example.quizzprova.usuario
 
 @Composable
 fun HeaderJogo(){
-    Column() {
+    Column(horizontalAlignment = Alignment.CenterHorizontally) {
         Text(
-            text = "Qual é esse país?",
-            style = MaterialTheme.typography.h3,
-            color = Color.White
+            text = "QUAL É ESSE PAÍS?",
+            style = MaterialTheme.typography.h4,
+            color = Color.Yellow
         )
         Text(
             text = "SCORE: ${score.value}",
             style = MaterialTheme.typography.h5,
-            color = Color.White
+            color = Color.Yellow
         )
     }
 }
