@@ -32,7 +32,7 @@ fun FooterInfo(number: Int) {
         Button(
             onClick = {
                 if (numeroPais.value == 0){
-                    Toast.makeText(context, "Não é possível ir para o anterior", Toast.LENGTH_SHORT).show()
+                    numeroPais.value = 29;
                 }else {
                     numeroPais.value = numeroPais.value - 1;
                 }
@@ -51,7 +51,7 @@ fun FooterInfo(number: Int) {
         Button(
             onClick = {
                 if (numeroPais.value == 29){
-                    Toast.makeText(context, "Não é possível ir para o proximo!", Toast.LENGTH_SHORT).show()
+                    numeroPais.value = 0;
                 }else {
                     numeroPais.value = numeroPais.value + 1;
                 }
