@@ -8,8 +8,8 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import com.example.quizzprova.Composable.Informacoes.estruturaInfo
 import com.example.quizzprova.ui.theme.ui.theme.QuizzProvaTheme
+import estruturaInfo
 
 val numeroPais = mutableStateOf(0)
 

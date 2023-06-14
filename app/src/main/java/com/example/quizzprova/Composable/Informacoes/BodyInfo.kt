@@ -10,6 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import com.example.quizzprova.Model.PaisesList
 
@@ -27,9 +28,11 @@ fun BodyInfo(number: Int) {
         ) {
             Text(
                 text = "Informações",
-                style = MaterialTheme.typography.h4.copy(fontWeight = FontWeight.Bold),
+                style = MaterialTheme.typography.h4.copy(
+                    fontWeight = FontWeight.Bold,
+                    textDecoration = TextDecoration.Underline
+                ),
                 color = Color.Yellow
-
             )
             Text(
                 text = pais.informacoes,
@@ -49,7 +52,10 @@ fun BodyInfo(number: Int) {
         ) {
             Text(
                 text = "Comida Típica",
-                style = MaterialTheme.typography.h4.copy(fontWeight = FontWeight.Bold),
+                style = MaterialTheme.typography.h4.copy(
+                    fontWeight = FontWeight.Bold,
+                    textDecoration = TextDecoration.Underline
+                ),
                 color = Color.Yellow
 
             )
