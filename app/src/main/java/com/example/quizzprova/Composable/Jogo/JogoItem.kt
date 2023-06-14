@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import com.example.quizzprova.Model.PaisesList
-import imgJogo
 
 
 @Composable

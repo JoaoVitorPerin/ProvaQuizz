@@ -14,12 +14,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import com.example.quizzprova.AddUsuario
+import com.example.quizzprova.*
 import com.example.quizzprova.Composable.Jogo.contador
 import com.example.quizzprova.Composable.Jogo.score
-import com.example.quizzprova.JogoActivity
-import com.example.quizzprova.LeaderboardActivity
-import com.example.quizzprova.usuario
 
 @Composable
 fun CollumBotoes() {
@@ -29,6 +26,7 @@ fun CollumBotoes() {
     ) {
         BotaoJogar()
         BotaoLeaderboard()
+        BotaoInfo()
     }
 }
 
@@ -75,6 +73,27 @@ fun BotaoLeaderboard() {
     ) {
         Text(
             text = "LEADERBOARD"
+        )
+    }
+}
+
+@Composable
+fun BotaoInfo() {
+    val context = LocalContext.current
+    val intent = Intent(context, Informacoes::class.java)
+
+    Button(
+        onClick = { context.startActivity(intent) },
+        colors = ButtonDefaults.textButtonColors(
+            backgroundColor = Color.Yellow,
+            contentColor = Color.Black
+        ),
+        modifier = Modifier
+            .padding(8.dp)
+            .size(200.dp, 50.dp)
+    ) {
+        Text(
+            text = "CURIOSIDADES"
         )
     }
 }
